@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmlx and express</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" ></script>
+    <script>
+        htmx.config.selfRequestsOnly = false;
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .comment{
+            margin: 20px;
+            padding: 20px;
+            border-radius: 0px 25px 25px; ;
+             border: 1px solid var(--text-main); 
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1>Express and htmx</h1>
+    <p>
+<button type="button" 
+hx-get="/users"
+hx-target="#userList" >Get Users</button>
+
+<div id="userList">
+
+</div>
+
+<button type="button" 
+hx-get="/comments"
+hx-target="#commentsList" >Get Comments</button>
+
+<div id="commentsList">
+
+</div>
+
+    </p>
+</body>
+
+</html>
+
+<!-- //https://jsonplaceholder.typicode.com/comments -->
