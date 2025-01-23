@@ -18,3 +18,5 @@ https://docs.aws.amazon.com/amplify/latest/userguide/deploy-express-server.html
 
 `npm run dev`
 
+
+if npm run dev crashes `[nodemon] app crashed - waiting for file changes before starting...` `pkill -f node`

@@ -52,6 +52,19 @@
         <h2>Users</h2>
         <details>
           <summary>Add New User</summary>
+          <form hx-post="/users" hx-target="#add-user-text">
+         
+            <div class="form-group">
+              <label>User Name</label>
+              <input type="text" name="name"  >
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" >
+            </div>
+            <button class="btn">Submit</button>
+            <p id="add-user-text"></p>
+          </form>
         </details>
         <article hx-get="/users" hx-trigger="load"></article>
       </section>
