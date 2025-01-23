@@ -5,8 +5,6 @@ import {CommentItem, UserItem} from "./definitions";
 const app: express.Application = express();
 const port = 3000;
 
-
-
 // set static folder
 app.use(express.static("public"));
 
@@ -43,12 +41,4 @@ app.get("/comments", async (req: express.Request, res: express.Response) =>{
  
  });
 
- app.get('/', (req, res) => {
-  res.status(200).send("Hello World!");
-});
-
-// GET
-app.get('/get', (req: express.Request, res: express.Response) => {
-  res.status(200).header("x-get-header", "get-header-value").send("get-response-from-compute");
-});
 
