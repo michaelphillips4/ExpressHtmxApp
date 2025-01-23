@@ -36,7 +36,7 @@ app.post("/users", (req: express.Request, res: express.Response) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      res.send(`new user added id:${json.id}`);
+      res.send(`echo:${JSON.stringify(json)}`);
     });
 
   //res.status(200).header("x-post-header", "post-header-value").send(req.body.toString());
