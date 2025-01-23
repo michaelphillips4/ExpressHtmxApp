@@ -28,7 +28,7 @@ app.get("/users", async (req: express.Request, res: express.Response) =>{
 
    const users:UserItem[] = await response.json();
 
-    res.send(`<h2>Users</h2><ul>${users.map(user=> `<li>${user.name}</li>`).join("")}</ul>`);
+    res.send(`<ul>${users.map(user=> `<li>${user.name}</li>`).join("")}</ul>`);
 
 });
 
@@ -38,16 +38,12 @@ app.get("/comments", async (req: express.Request, res: express.Response) =>{
  
     const items:CommentItem[] = await response.json();
  
-     res.send(`<h2>Comments</h2><ul>${items.map(item=> `
-        <li class="comment"><i>${item.email}</i><h4>${item.name}</h4>${item.body}</li>`).join("")}</ul>`);
+     res.send(`${items.map(item=> `
+        <div class="comment"><i>${item.email}</i><h4>${item.name}</h4>${item.body}</div>`).join("")}`);
  
  });
 
 
-// Homepage
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.status(200).send("Hello World!");
-});
 
 // GET
 app.get('/get', (req: express.Request, res: express.Response) => {

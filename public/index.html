@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>htmlx and express</title>
-    <script src="https://unpkg.com/htmx.org@1.9.12" ></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htmx and express</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     <script>
-        htmx.config.selfRequestsOnly = false;
+      htmx.config.selfRequestsOnly = false;
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
     <style>
-        .comment{
-           
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 0px 25px 25px; ;
-             border: 1px solid var(--text-main); 
-        }
-
-        
+      .comment {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 0px 25px 25px;
+        border: 1px solid silver;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <h1>Express and htmx</h1>
-    <p>
-<button type="button" 
-hx-get="/users"
-hx-target="#userList" >Get Users</button>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="#users">Users</a>
+        <a href="#comments">Comments</a>
+      </nav>
 
-<div id="userList">
+      <h1>Express and Htmx</h1>
+    </header>
+    <main>
+      <section>
+        <blockquote>
+          Messing about with Express and Htmx hosted on AWS. The express API
+          just format the responses to 2 api calls to
+          <a href="https://jsonplaceholder.typicode.com"
+            >https://jsonplaceholder.typicode.com</a
+          >
+          for notes and comments. Htmx calls these apis when the page loads so
+          there is no javascript in the client.
+          <a href="https://htmx.org/">htmx.org</a>
+          <a href="https://expressjs.com">expressjs.com</a>
+        </blockquote>
+      </section>
 
-</div>
+      <section id="users">
+        <h2>Users</h2>
+        <details>
+          <summary>Add New User</summary>
+        </details>
+        <article hx-get="/users" hx-trigger="load"></article>
+      </section>
 
-<button type="button" 
-hx-get="/comments"
-hx-target="#commentsList" >Get Comments</button>
+      <!-- <section>
+    <h2>Stuff</h2>
+    <div>
+        <button class="btn primary"
+                hx-post="/submit"
+                hx-prompt="No javascript text"
+                hx-confirm="Are you sure?"
+                hx-target="#r">
+          Prompt Submission
+        </button>
+        <div id="r"></div>
+      </div>
+</section> -->
 
-<div id="commentsList">
-
-</div>
-
-    </p>
-</body>
-
+      <section id="comments">
+        <h2>Comments</h2>
+        <article hx-get="/comments" hx-trigger="revealed"></article>
+      </section>
+    </main>
+    <footer>
+      v1 by Michael Phillips <a href="http:\\www.area2.co.uk">home</a>
+    </footer>
+  </body>
 </html>
-
-<!-- //https://jsonplaceholder.typicode.com/comments -->

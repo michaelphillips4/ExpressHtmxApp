@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>htmlx and express</title>
-    <script src="https://unpkg.com/htmx.org@1.9.12" ></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htmx and express</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     <script>
-        htmx.config.selfRequestsOnly = false;
+      htmx.config.selfRequestsOnly = false;
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
     <style>
-        .comment{
-            margin: 20px;
-            padding: 20px;
-            border-radius: 0px 25px 25px; ;
-             border: 1px solid var(--text-main); 
-        }
+      .comment {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 0px 25px 25px;
+        border: 1px solid silver;
+      }
 
-        
+     
     </style>
-</head>
+  </head>
 
-<body>
-    <h1>Express and htmx</h1>
-    <p>
-<button type="button" 
-hx-get="/users"
-hx-target="#userList" >Get Users</button>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="#users">Users</a>
+        <a href="#comments">Comments</a>
+      </nav>
 
-<div id="userList">
+      <h1>express and htmx</h1>
+    </header>
 
-</div>
+    <section>
+      <blockquote>
+        Messing about with Express and Htmx. The express server is hosted on
+        AWS. It just formats the responses to 2 api calls to
+        <ol>
+          <li>https://jsonplaceholder.typicode.com/notes</li>
+          <li>https://jsonplaceholder.typicode.com/comments</li>
+        </ol>
+        htmx calls these apis when the page loads so there is no javascript in
+        the client.
+      </blockquote>
+    </section>
 
-<button type="button" 
-hx-get="/comments"
-hx-target="#commentsList" >Get Comments</button>
+    <section id="users">
+      <h2>Users</h2>
+      <article hx-get="/users" hx-trigger="load"></article>
+      <button>Add User</button>
+    </section>
 
-<div id="commentsList">
+    <section id="comments">
+    
+        <h2>Comments</h2>
+        <article hx-get="/comments" hx-trigger="revealed"></article>
+        <button>Add Comment</button>
+    </section>
 
-</div>
-
-    </p>
-</body>
-
+    <footer></footer>
+  </body>
 </html>
 
 <!-- //https://jsonplaceholder.typicode.com/comments -->
