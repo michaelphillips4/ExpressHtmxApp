@@ -8,7 +8,9 @@ Htmx calls these apis when the page loads so there is no javascript in the clien
 
 see
 https://htmx.org
+
 https://expressjs.com
+
 https://docs.aws.amazon.com/amplify/latest/userguide/deploy-express-server.html
 
 to build 
