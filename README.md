@@ -6,14 +6,15 @@ The express API just format the responses to 2 api calls to https://jsonplacehol
 
 Htmx calls these apis when the page loads so there is no javascript in the client.
 
-see
+## see
+
 https://htmx.org
 
 https://expressjs.com
 
 https://docs.aws.amazon.com/amplify/latest/userguide/deploy-express-server.html
 
-to build 
+## to build 
 
 `npm run build`
 
