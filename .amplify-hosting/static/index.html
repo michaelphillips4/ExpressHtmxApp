@@ -16,8 +16,6 @@
         border-radius: 0px 25px 25px;
         border: 1px solid silver;
       }
-
-     
     </style>
   </head>
 
@@ -29,37 +27,56 @@
         <a href="#comments">Comments</a>
       </nav>
 
-      <h1>express and htmx</h1>
+      <h1>Express and Htmx</h1>
     </header>
+    <main>
+      <section>
+        <blockquote>
+          Messing about with Express and Htmx hosted on AWS. The express API
+          just format the responses to 2 api calls to
+          <a href="https://jsonplaceholder.typicode.com"
+            >https://jsonplaceholder.typicode.com</a
+          >
+          for notes and comments. Htmx calls these apis when the page loads so
+          there is no javascript in the client.
+          <ul>
+            <li> <a href="https://htmx.org/">htmx.org</a></li>
+            <li> <a href="https://expressjs.com">expressjs.com</a></li>
+          </ul>
+          Messing about with Express and Htmx hosted on AWS. The express API just format the responses to 2 api calls to https://jsonplaceholder.typicode.com for notes and comments. Htmx calls these apis when the page loads so there is no javascript in the client.
+         
+        </blockquote>
+      </section>
 
-    <section>
-      <blockquote>
-        Messing about with Express and Htmx. The express server is hosted on
-        AWS. It just formats the responses to 2 api calls to
-        <ol>
-          <li>https://jsonplaceholder.typicode.com/notes</li>
-          <li>https://jsonplaceholder.typicode.com/comments</li>
-        </ol>
-        htmx calls these apis when the page loads so there is no javascript in
-        the client.
-      </blockquote>
-    </section>
+      <section id="users">
+        <h2>Users</h2>
+        <details>
+          <summary>Add New User</summary>
+        </details>
+        <article hx-get="/users" hx-trigger="load"></article>
+      </section>
 
-    <section id="users">
-      <h2>Users</h2>
-      <article hx-get="/users" hx-trigger="load"></article>
-      <button>Add User</button>
-    </section>
+      <!-- <section>
+    <h2>Stuff</h2>
+    <div>
+        <button class="btn primary"
+                hx-post="/submit"
+                hx-prompt="No javascript text"
+                hx-confirm="Are you sure?"
+                hx-target="#r">
+          Prompt Submission
+        </button>
+        <div id="r"></div>
+      </div>
+</section> -->
 
-    <section id="comments">
-    
+      <section id="comments">
         <h2>Comments</h2>
         <article hx-get="/comments" hx-trigger="revealed"></article>
-        <button>Add Comment</button>
-    </section>
-
-    <footer></footer>
+      </section>
+    </main>
+    <footer>
+      v1 by Michael Phillips <a href="http:\\www.area2.co.uk">home</a>
+    </footer>
   </body>
 </html>
-
-<!-- //https://jsonplaceholder.typicode.com/comments -->
