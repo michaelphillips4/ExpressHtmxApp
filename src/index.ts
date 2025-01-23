@@ -43,7 +43,9 @@ app.get("/comments", async (req: express.Request, res: express.Response) =>{
  
  });
 
-
+ app.get('/', (req, res) => {
+  res.status(200).send("Hello World!");
+});
 
 // GET
 app.get('/get', (req: express.Request, res: express.Response) => {
